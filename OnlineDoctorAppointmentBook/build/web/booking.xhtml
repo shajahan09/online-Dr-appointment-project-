@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+   <h:body>
+         <h:form>
+             
+             <p:growl id="messages"/>
+ 
+             <p:menubar style="background-color:darkgreen">
+        <f:facet name="options">
+
+            <p:commandButton value="My details" action="myDetails" />
+        </f:facet>
+        
+        <f:facet name="options">
+
+            <p:commandButton value="Book Appointment"  action="bookAppointment" />
+        </f:facet>
+        
+        <f:facet name="options">
+
+            <p:commandButton value="Web Booking"  action="webBooking" />
+        </f:facet>
+       
+        <f:facet name="options">
+
+            <p:commandButton value="Cancel booking" style="font-size:small" action="cancelBooking" />
+        </f:facet>
+        
+        <f:facet name="options">
+
+            <p:commandButton value="Search Doctor" style="font-size:small" action="searchDoctor" />
+        </f:facet>
+      
+        <f:facet name="options">
+
+            <p:commandButton value="Feedback" style="font-size:small" action="feedback" />
+        </f:facet>
+        <f:facet name="options">
+
+            <p:commandButton value="Logout" action="LoginForm" />
+        </f:facet>
+    </p:menubar>
+             
+               
+
+                    
+             <h1 style="text-align: center"><i>Patient Booking</i></h1>
+                        
+  <center>
+   <h:panelGrid columns="2">
+       <h:outputText value="Patient-Name"/>
+       <p:inputText value="#{bCtrl.name}" placeholder="Enter Patient name"/>
+       <h:outputText value="Mobile-Number"/>
+       <p:inputText value="#{bCtrl.mobile}" placeholder="Enter Mobile Number"/>
+        <h:outputLabel value="Category: "/>         
+        <p:autoComplete placeholder="Search-Category" value="#{bCtrl.catagory}" completeMethod="#{doctr.testCompleteMethod(input)}" />
+        
+        <h:outputLabel value="Doctor: "/>         
+        <p:autoComplete placeholder="Search-Doctor"  value="#{bCtrl.dname}" completeMethod="#{doctr.testCompleteMethodDctr(input)}" />
+        
+         <p:outputLabel for="popup" value="Date:" />
+         <p:inputText placeholder="Enter Date" id="popup" value="#{bCtrl.date}" />
+        
+                                 
+         <p:commandButton value="Booking"  action="#{bCtrl.addBook()}" style="margin-right:20px;" styleClass="ui-priority-primary" />
+         <h:commandLink value="back" action="button" />
+   </h:panelGrid>
+    </center>
+   </h:form>
+       <br/><br/><br/><br/>
+       <div style="background-color: lightgrey"><h1 style="color: red"><marquee><i>***List Of Doctor's***</i></marquee></h1></div>
+       <p:dataTable value="#{doctr.productList}" var="product">
+           <p:column headerText="Serial-No">
+               <h:outputText value="#{product.id}"/>  
+            </p:column > 
+       <p:column headerText="Doctor's Name">
+           <h:outputText value="#{product.doctor}"/>  
+            </p:column >
+             <p:column headerText="Doctor's Catagory">
+                 <h:outputText value="#{product.catagory}"/>  
+            </p:column >
+             <p:column headerText="Time">
+           <h:outputText value="#{product.time}"/>  
+            </p:column >
+            <p:column headerText="Fees">
+                <h:outputText value="#{product.fees}"/>  
+            </p:column >
+       
+        </p:dataTable>
+    </h:body>
+</html>

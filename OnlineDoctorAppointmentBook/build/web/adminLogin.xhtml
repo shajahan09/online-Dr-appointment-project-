@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <style type="text/css">
+     
+     
+            .banner-image{
+                     background-image: url("g.png");
+                        height:100%;
+                        width: 100%;
+                          background-size: cover;
+                            }
+        </style>
+    </h:head>
+    <h:body class="banner-image">
+        <h:form>
+                <center><br/><br/><br/><br/><br/><br/><br/><br/>
+
+                   
+                    <h1><i>Admin Login Form</i></h1>
+
+                        <center>
+                            <h:panelGrid columns="2">
+
+
+
+                                <h:outputLabel value="User Email"/>
+                                <p:inputText value="#{userCrtl.email}" />
+                                
+
+
+
+                                <h:outputLabel value="Password"/>
+                                <p:password value="#{userCrtl.password}"  />
+                                
+
+                                <h:commandButton value="Login" action="#{userCrtl.adminlogin()}"/>
+                                <input type="reset" value="Reset" class="btn-seccess"/>    
+
+
+                            </h:panelGrid>
+
+
+                        </center>
+                        <h4>Not a member yet?<h:commandLink  value="Click_SignUp" action="adminSignup"/> </h4>
+                    
+
+
+                </center>
+            </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+         <style type="text/css">
+     
+     
+            .banner-image{
+                     background-image: url("dadd.png");
+                        height:100%;
+                        width: 100%;
+                          background-size: cover;
+                            }
+        </style>
+    </h:head>
+    <h:body class="banner-image">
+       <center>
+           <h1> <i>Doctor's Adding</i></h1>
+     <h:form>
+         <h:panelGrid columns="2" style="color: lightcoral">
+       <h:outputText value="Doctor-Name"/>
+       <p:inputText value="#{doctr.doctor}" placeholder="Enter Doctor name"/>
+       <h:outputText value="Category"/>
+       <p:inputText value="#{doctr.catagory}" placeholder="Enter Dr. Category"/>
+       <h:outputText value="Time"/>
+       <p:inputText value="#{doctr.time}" placeholder="Enter Dr. Time"/>
+        
+       <h:outputText value="Fees"/>
+       <p:inputText value="#{doctr.fees}" placeholder="Enter Dr. Fees"/>
+        
+         <p:outputLabel for="popup" value="Date" />
+         <p:inputText placeholder="Enter Date" id="popup" value="#{doctr.date}" />
+        
+                                 
+         <h:commandButton value="Add"  action="#{doctr.addDctr()}" style="margin-right:20px;" />
+         <h:commandButton value="Back" action="button" />
+   </h:panelGrid>
+    
+   </h:form>
+       </center>
+    </h:body>
+</html>
+

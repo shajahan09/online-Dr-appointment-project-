@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    
+    <h:head>
+        <title>Facelet Title</title>
+  <style>
+     
+     
+.banner-image{
+    background-image: url("d.jpg");
+    
+    background-size: cover;
+}
+  </style>
+    </h:head>
+    <h:body class="banner-image">
+        <h1 style="text-align: center"> <i>List Of Patient</i></h1>
+         
+             
+         <center>    
+             <table border="1" style="color: appworkspace">
+            <thead>
+                <tr style="color: indigo">
+                    <th>Serial-No</th>
+                    <th>Patient-Name</th>
+                    <th>Mobile</th>
+                    <th>Date</th> 
+                    
+                    <th>Delete</th>
+                </tr>
+            </thead>
+                             
+                   <c:forEach var="p" items="#{bCtrl.allbooking}" >
+                       <tr style="color:black ">
+                        <h:form>
+                             <td><h:outputText value="#{p.id}" /></td>
+                             <td><h:outputText value="#{p.name}" /></td>
+                             <td><h:outputText value="#{p.mobile}" /></td>
+                             <td><h:outputText value="#{p.date}" /></td>
+                             
+                             
+                             <td style="background: red "><h:commandButton action="#{bCtrl.delete(p)}" value="Delete" /></td>
+                        </h:form>
+                    </tr>
+                    
+                </c:forEach>
+                 
+           
+        </table>
+             <h:form>
+             <h:commandLink value="Back" action="button"/>
+             </h:form>
+         </center>
+        
+             
+             
+             
+     
+    </h:body>
+</html>
+
